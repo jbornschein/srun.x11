@@ -3,15 +3,24 @@
 # Author: Pär Andersson (National Supercomputer Centre, Sweden)
 # Version: 0.3 2007-07-30
 #
+# 2011-06-23: Joerg Bornschein <bornschein@fias.uni-frankfurt.de>
+#   Make this script find its own path
+#
 # This will submit a batch script that starts screen on a node.
 # Then ssh is used to connect to the node and attach the screen.
 # The result is very similar to an interactive shell in PBS
 # (qsub -I)
 
+# Find our own path (linux specific)
+MYDIR="$( cd "$( dirname "$0" )" && pwd )"
+
+# or
+# MYDIR=/usr/local/bin
+
 # Batch Script that starts SCREEN
-BS=/home/bornschein/bin/_interactive
+BS=$MYDIR/_interactive
 # Interactive screen script
-IS=/home/bornschein/bin/_interactive_screen
+IS=$MYDIR/_interactive_screen
 
 # Submit the job and get the job id
 JOB=`sbatch --output=/dev/null --error=/dev/null $@ $BS 2>&1 \

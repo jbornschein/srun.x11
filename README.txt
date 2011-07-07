@@ -1,4 +1,3 @@
-
 == PURPOSE & USAGE ==
 
 Interactive shell with X11 forwarding for SLURM.
@@ -14,3 +13,4 @@ proper X11 forwarding enabled.
 Scripts were written by  Pär Andersson (National Supercomputer Centre, Sweden)
 and published in the SLURM FAQ.
 
+==

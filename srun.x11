@@ -27,7 +27,7 @@ JOB=`sbatch --output=/dev/null --error=/dev/null $@ $BS 2>&1 \
     | egrep -o -e "\b[0-9]+$"`
 
 # Make sure the job is always canceled
-trap "{ /usr/bin/scancel -q $JOB; exit; }" SIGINT SIGTERM EXIT
+trap "{ /usr/bin/scancel -Q $JOB; exit; }" SIGINT SIGTERM EXIT
 
 echo "Waiting for JOBID $JOB to start"
 while true;do
